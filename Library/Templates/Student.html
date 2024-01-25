@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>STUDENT</title>
+</head>
+<body>
+    <br>
+    <br>
+    <form method="get">
+        <input name="ismi" type="text" placeholder="Talaba ismini kiriting!">
+        <button>Qidirish</button>
+    </form>
+
+    <br>
+    <hr>
+    <br>
+    <h1 id="sarlavha"><b>Hamma studentlar royhati!</b></h1>
+    <br>
+    <hr>
+    <br>
+    {% for student in students %}
+        <h3><a href="/bitta_talaba/{{student.id}}">{{student.ism}}</a> {{student.kurs}}-kurs</h3>
+        <hr>
+    {% endfor %}
+</body>
+</html>

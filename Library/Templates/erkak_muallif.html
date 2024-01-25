@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Erkak muallif</title>
+</head>
+<body>
+    <br>
+    <hr>
+    <br>
+<h1>Erkak Mualliflar</h1>
+    <br>
+    <hr>
+    <br>
+    {% for muallif in mualliflar %}
+        <a>{{ muallif.ism}}</a>
+        <hr>
+    {% endfor %}
+</body>
+</html>

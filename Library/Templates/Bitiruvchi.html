@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bitiruvchilar</title>
+</head>
+<body>
+    <br>
+    <hr>
+    <br>
+    <h1 id="sarlavha"><b>Studentlar royhati!</b></h1>
+    <br>
+    <hr>
+    <br>
+    {% for student in students %}
+        <a>{{ student.ism}}</a>
+        <hr>
+    {% endfor %}
+</body>
+</html>
