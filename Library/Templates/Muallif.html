@@ -11,10 +11,36 @@
 <h1>Hamma mu'alliflar royhari!</h1>
 <hr>
 <br>
+<form method="get">
+    <input name="ismi" type="text" placeholder="Muallif ismini kiriting">
+    <button>Qidirish</button>
+</form>
+
+<br>
+<hr>
+<br>
+<br>
     {% for muallif in mualliflar %}
-        <a>{{ muallif.ism }}</a>
+        <h1>{{muallif.id}}. {{ muallif.ism }}</h1>
+        <a href="/muallif_ochir/{{muallif.id}}/"><button>O'chirish</button></a>
+        <a href="/muallif/{{muallif.id}}/tahrirlash/"><button>Tahrirlash</button></a>
         <hr>
     {% endfor %}
+    <br>
+    <br>
+    <form method="post">{%csrf_token%}
+        <input name="ismi" type="text" placeholder="Muallif ismini kiriting">
+        <select name="jins">
+            <option value="Erkak">Erkak</option>
+            <option value="Ayol">Ayol</option>
+        </select>
+
+        <input name="t_s" type="date" placeholder="Tug'ulgan sanani kiriting">
+        <input name="k_s" type="number" placeholder="Kitoblar sonini kiriting" min="10">
+         <label>Tirik: </label>
+         <input type="checkbox" name="t">
+        <button>Qoshish</button>
+    </form>
 
 </body>
 </html>

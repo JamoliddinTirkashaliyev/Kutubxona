@@ -26,5 +26,19 @@
         <a href="/kitob_ochir/{{book.id}}"><button>O'chirish</button></a>
         <hr>
     {% endfor %}
+    <br>
+    <br>
+    <form method="post">{%csrf_token%}
+        <input name="nom" type="text" placeholder="Kitob nomini kiriting">
+        <select name="m">
+            {% for muallif in mualliflar %}
+
+                <option value="{{muallif.id}}">{{ muallif.ism}}</option>
+            {% endfor %}
+        </select>
+        <input name="s" type="number" placeholder="Sahifa soni">
+        <input name="j" type="text" placeholder="Janir">
+        <button>Qoshish</button>
+    </form>
 </body>
 </html>

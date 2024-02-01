@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kutubxonachilar</title>
+</head>
+<body>
+<br>
+<hr>
+<br>
+<h1>Kutubxonachilar royhati!</h1>
+<br>
+<hr>
+<br>
+{% for kutubxonachi in kutubxonachilar%}
+<h2>{{kutubxonachi.ism}}:    ish vaqti {{kutubxonachi.ish_vaqti}}</h2>
+<a href="/kutubxonachilar/{{kutubxonachi.id}}/tahrirlash/"> <button>Tahrirlash</button></a>
+{%endfor%}
+</body>
+</html>

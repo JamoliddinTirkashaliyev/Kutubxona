@@ -1,10 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Records</title>
 </head>
 <body>
-$END$
+<br>
+    <br>
+    <form method="get">
+        <input name="nomi" type="text" placeholder="Talaba ismini kiriting!">
+        <button>Qidirish</button>
+    </form>
+
+    <br>
+    <hr>
+    <br>
+    <h1>Recordlar royhati!</h1>
+    <hr>
+    <br>
+    {% for record in recordlar %}
+        <a>{{ record.talaba}}</a>
+        <a>{{ record.kitob}}</a>
+        <a>{{ record.kutubxonachi}}</a>
+        <a>{{ record.olingan_sana}}</a>
+        <a>{{ record.qaytarish_sana}}</a>
+        <a href="/record_ochir/{{record.id}}/"><button>O'chirish</button></a>
+        <a href="/records/{{record.id}}/tahrirlash/"><button>Tahrirlash</button></a>
+        <hr>
+    {% endfor %}
+
 </body>
 </html>

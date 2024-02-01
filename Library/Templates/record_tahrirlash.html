@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Record tahrirlash</title>
+</head>
+<body>
+    <form method="post">
+        {%csrf_token%}
+        <label>Qaytarish sanasi:</label><br>
+        <input name="q_sana" type="date" value="{{record.qaytarish_sana}}">
+        <br>
+        <label>Qaytardi:</label><br>
+        <input name="i_vaqt" type="checkbox" value="{{record.qaytardi}}">
+        <br>
+
+        <button type="submit">Tahrirlash</button>
+    </form>
+</body>
+</html>

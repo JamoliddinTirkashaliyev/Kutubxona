@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kutubxonachini tahrirlash</title>
+</head>
+<body>
+<form method="post">
+    {%csrf_token%}
+    <label>Iismi:</label><br>
+    <input name="ismi" type="text" value="{{kutubxonachi.ism}}">
+    <br>
+    <hr>
+    <label>Ish vaqti:</label><br>
+    <input name="i_vaqt" type="text" value="{{kutubxonachi.ish_vaqti}}">
+    <br>
+    <hr>
+
+    <button type="submit">Tahrirlash</button>
+</form>
+</body>
+</html>

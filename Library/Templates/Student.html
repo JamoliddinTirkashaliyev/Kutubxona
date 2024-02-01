@@ -21,7 +21,16 @@
     <br>
     {% for student in students %}
         <h3><a href="/bitta_talaba/{{student.id}}">{{student.ism}}</a> {{student.kurs}}-kurs</h3>
+        <a href="/talabalar/{{student.id}}/tahrirlash/"> <button>Tahrirlash</button></a>
         <hr>
     {% endfor %}
+    <br>
+    <br>
+    <form method="post">{%csrf_token%}
+        <input name="ismi" type="text" placeholder="Talaba ismini kiriting">
+        <input name="k" type="number" placeholder="Kurs">
+        <input name="k_s" type="number" placeholder="kitoblar soni">
+        <button>Qoshish</button>
+    </form>
 </body>
 </html>

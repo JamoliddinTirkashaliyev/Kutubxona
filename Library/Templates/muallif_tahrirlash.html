@@ -1,10 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Muallif tahrirlash</title>
 </head>
 <body>
-$END$
+<form method="post">
+    {%csrf_token%}
+    <label>Ismi:</label><br>
+    <input name="ismi" type="text" value="{{muallif.ism}}">
+    <br>
+    <label>Junsi:</label><br>
+    <input name="jins" type="text">
+    <br>
+    <label>Tug'ulgan Sana:</label><br>
+    <input name="t_s" type="date">
+    <br>
+    <label>Tirik:</label><br>
+    <input name="tirik" type="checkbox">
+    <br>
+    <label>Kitoblar soni:</label><br>
+    <input name="k_s" type="number" value="{{muallif.kitoblar_soni}}">
+    <br>
+    <button type="submit">Tahrirlash</button>
+</form>
 </body>
 </html>
