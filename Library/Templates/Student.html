@@ -27,9 +27,10 @@
     <br>
     <br>
     <form method="post">{%csrf_token%}
-        <input name="ismi" type="text" placeholder="Talaba ismini kiriting">
-        <input name="k" type="number" placeholder="Kurs">
-        <input name="k_s" type="number" placeholder="kitoblar soni">
+        {{form.as_p}}
+<!--        <input name="ismi" type="text" placeholder="Talaba ismini kiriting">-->
+<!--        <input name="k" type="number" placeholder="Kurs">-->
+<!--        <input name="k_s" type="number" placeholder="kitoblar soni">-->
         <button>Qoshish</button>
     </form>
 </body>

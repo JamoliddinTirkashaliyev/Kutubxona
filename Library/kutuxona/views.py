@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-
 from .models import *
+from .forms import *
 
 
 def hamma_kitoblar(reqest):
@@ -26,11 +26,19 @@ def hamma_kitoblar(reqest):
 
 def Student(reqest):
     if reqest.method == "POST":
-        Talaba.objects.create(
-            ism=reqest.POST.get("ismi"),
-            kurs=reqest.POST.get("k"),
-            kitoblar_soni=reqest.POST.get("k_s")
-        )
+
+        date = TalabaForm(reqest.POST)
+        if date.is_valid():
+            Talaba.objects.create(
+                ism = date.cleaned_data['ism'],
+                kitoblar_soni = date.cleaned_data['kitoblar_soni'],
+                kurs = date.cleaned_data['kurs'],
+            )
+        # Talaba.objects.create(
+        #     ism=reqest.POST.get("ismi"),
+        #     kurs=reqest.POST.get("k"),
+        #     kitoblar_soni=reqest.POST.get("k_s")
+        # )
         return redirect("/student/")
 
     natija = Talaba.objects.all()
@@ -39,7 +47,8 @@ def Student(reqest):
         natija = Talaba.objects.filter(ism__contains=kiritilgan_ism)
 
     talaba = {
-        "students": natija
+        "students": natija,
+        'form': TalabaForm()
     }
     return render(reqest, 'Student.html', talaba)
 
