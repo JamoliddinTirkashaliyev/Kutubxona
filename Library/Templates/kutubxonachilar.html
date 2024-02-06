@@ -11,6 +11,12 @@
 <h1>Kutubxonachilar royhati!</h1>
 <br>
 <hr>
+<form method="post" action="/kutubxonachilar/">
+       {%csrf_token%}
+         {{form.as_p}}
+        <button>Qo'shish</button>
+    </form>
+<hr>
 <br>
 {% for kutubxonachi in kutubxonachilar%}
 <h2>{{kutubxonachi.ism}}:    ish vaqti {{kutubxonachi.ish_vaqti}}</h2>

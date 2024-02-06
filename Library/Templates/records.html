@@ -18,6 +18,15 @@
     <h1>Recordlar royhati!</h1>
     <hr>
     <br>
+    <form method="post" action="/records/">
+       {%csrf_token%}
+         {{form.as_p}}
+        <button>Qo'shish</button>
+    </form>
+    <br>
+    <br>
+    <hr>
+    <br>
     {% for record in recordlar %}
         <a>{{ record.talaba}}</a>
         <a>{{ record.kitob}}</a>

@@ -100,21 +100,31 @@ def kitob_ochir(reqest, pk):
 
 def hamma_mualliflar(reqest):
     if reqest.method == "POST":
-        Muallif.objects.create(
-            ism=reqest.POST.get("ismi"),
-            jins=reqest.POST.get("jins"),
-            tugilgan_sana=reqest.POST.get("t_s"),
-            tirik=reqest.POST.get("t") == "on",
-            kitoblar_soni=reqest.POST.get("k_s"),
-
-        )
+        data = MuallifForm(reqest.POST)
+        if data.is_valid():
+            Muallif.objects.create(
+                ism=data.cleaned_data['ism'],
+                jins=data.cleaned_data['jins'],
+                tugulgan_sana=data.cleaned_data['tugulgan_sana'],
+                tirik=data.cleaned_data['tirik'],
+                kitoblar_soni=data.cleaned_data['kitoblar_soni'],
+            )
+        # Muallif.objects.create(
+        #     ism=reqest.POST.get("ismi"),
+        #     jins=reqest.POST.get("jins"),
+        #     tugilgan_sana=reqest.POST.get("t_s"),
+        #     tirik=reqest.POST.get("t") == "on",
+        #     kitoblar_soni=reqest.POST.get("k_s"),
+        #
+        # )
         return redirect("/hamma_mualliflar/")
     natija = Muallif.objects.all()
     kiritilgan_ism = reqest.GET.get("ismi")
     if kiritilgan_ism is not None:
         natija = Muallif.objects.filter(ism__contains=kiritilgan_ism)
     date = {
-        "mualliflar": natija
+        "mualliflar": natija,
+        'forms': MuallifForm(),
 
     }
     return render(reqest, 'Muallif.html', date)
@@ -179,12 +189,18 @@ def bitiruvchi(reqest):
 
 
 def records(reqest):
+    if reqest.method == "POST":
+        data = RecordForm(reqest.POST)
+        if data.is_valid():
+            data.save()
+        return redirect("/records/")
     natija = Record.objects.all()
     kiritilgan_ism = reqest.GET.get("nomi")
     if kiritilgan_ism is not None:
         natija = Record.objects.filter(talaba__contains=kiritilgan_ism)
     date = {
-        "recordlar": natija
+        "recordlar" : natija,
+        'form': RecordForm(),
     }
     return render(reqest, 'records.html', date)
 
@@ -229,8 +245,15 @@ def muallif_tahrirlash(reqest, pk):
     return render(reqest, 'muallif_tahrirlash.html', context)
 
 def kutubxonachilar(reqest):
+    if reqest.method == "POST":
+        data = KutubxonachiForm(reqest.POST)
+        if data.is_valid():
+            data.save()
+        return redirect("/kutubxonachilar/")
+
     context = {
-        'kutubxonachilar': Kutubxonachi.objects.all()
+        'kutubxonachilar': Kutubxonachi.objects.all(),
+        'form': KutubxonachiForm(),
     }
     return render(reqest, 'kutubxonachilar.html', context)
 def kutubxonachi_tahrirlash(reqest, pk):

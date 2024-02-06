@@ -28,18 +28,19 @@
     {% endfor %}
     <br>
     <br>
-    <form method="post">{%csrf_token%}
-        <input name="ismi" type="text" placeholder="Muallif ismini kiriting">
-        <select name="jins">
-            <option value="Erkak">Erkak</option>
-            <option value="Ayol">Ayol</option>
-        </select>
+        <form method="post">{%csrf_token%}
+             {{forms.as_p}}
+<!--        <input name="ismi" type="text" placeholder="Muallif ismini kiriting">-->
+<!--        <select name="jins">-->
+<!--            <option value="Erkak">Erkak</option>-->
+<!--            <option value="Ayol">Ayol</option>-->
+<!--        </select>-->
 
-        <input name="t_s" type="date" placeholder="Tug'ulgan sanani kiriting">
-        <input name="k_s" type="number" placeholder="Kitoblar sonini kiriting" min="10">
-         <label>Tirik: </label>
-         <input type="checkbox" name="t">
-        <button>Qoshish</button>
+<!--        <input name="t_s" type="date" placeholder="Tug'ulgan sanani kiriting">-->
+<!--        <input name="k_s" type="number" placeholder="Kitoblar sonini kiriting" min="10">-->
+<!--         <label>Tirik: </label>-->
+<!--         <input type="checkbox" name="t">-->
+        <button submit="True" >Qoshish</button>
     </form>
 
 </body>
